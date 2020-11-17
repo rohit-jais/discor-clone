@@ -30,19 +30,19 @@ function Sidebar() {
     );
   }, []);
 
-    const handleAddChannel = () => {
-      const channelName = prompt("Enter New Channel's Name");
-      if(channelName){
-        db.collection('channels').add({
-          channelName: channelName,
-        });
-      }
-    };
+  const handleAddChannel = () => {
+    const channelName = prompt("Enter New Channel's Name");
+    if (channelName) {
+      db.collection("channels").add({
+        channelName: channelName,
+      });
+    }
+  };
 
   return (
     <div className="sidebar">
       <div className="sidebar__top">
-        <h3>Rohit Jasiwal</h3>
+        <h3>{user.displayName}</h3>
         <ExpandMoreIcon />
       </div>
 
@@ -50,16 +50,18 @@ function Sidebar() {
         <div className="sidebar__channelsHeader">
           <div className="sidebar__header">
             <ExpandMoreIcon />
-            <h4> Text Channels</h4>
+            <h4> Channels</h4>
           </div>
           <AddIcon onClick={handleAddChannel} className="sidebar__addChannel" />
         </div>
         <div className="sidebar__channelsList">
           {channels.map(({ id, channel }) => (
-          <SidebarChannel key={id} id={id} channelName={channel.channelName}
-          />
+            <SidebarChannel
+              key={id}
+              id={id}
+              channelName={channel.channelName}
+            />
           ))}
-
         </div>
       </div>
 
@@ -79,9 +81,14 @@ function Sidebar() {
         </div>
       </div>
       <div className="sidebar__profile">
-        <Avatar onClick={() => auth.signOut()} src={user.photo} />
+        <Avatar src={user.photo} />
         <div className="sidebar__profileInfo">
-          <h3>{user.displayName}</h3>
+          <h3>
+            {user.displayName}{" "}
+            <span onClick={() => auth.signOut()} id="h4">
+              <b>(Logout)</b>
+            </span>
+          </h3>
           <p>#{user.uid.substring(0, 5)}</p>
         </div>
         <div className="sidebar__profileIcons">

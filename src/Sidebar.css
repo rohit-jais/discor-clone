@@ -72,6 +72,11 @@
   padding: 10px;
   border-top: 1px solid gray;
 }
+
+#h4 {
+  cursor: pointer;
+  font-size: x-small;
+}
 .sidebar__profileInfo {
   flex: 1;
   padding: 10px;
@@ -81,4 +86,10 @@
 }
 .sidebar__profileIcons > .MuiSvgIcon-root{
   padding: 10px;
+}
+.sidebar__voiceIcons > .MuiSvgIcon-root :hover {
+  color: white;
+}
+.sidebar__profileIcons > .MuiSvgIcon-root :hover {
+  color: white;
 }
