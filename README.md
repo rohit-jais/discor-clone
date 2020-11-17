@@ -1,4 +1,4 @@
-# Hi, here is replica of Discord,.
+# Hi, here is the replica of Discord.
 The follwing project has build on Redux-React-App
 
 ## Live Demo Link Hosted on Netlify
